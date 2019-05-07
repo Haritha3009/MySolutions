@@ -1,0 +1,33 @@
+﻿@model Assignmnt.tblreg
+@{   
+    Layout = "~/Views/Shared/_LayoutCustom.cshtml";
+
+}
+
+@using (Html.BeginForm("Login", "Default", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <h4>Login Panel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">            
+            @Html.LabelFor(x => x.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(x => x.Address, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(x => x.Address, new { @class = "form-control",placeholder = "Password", @type = "password" })
+                @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
